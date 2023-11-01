@@ -1,38 +1,95 @@
+/* App Level */
 .App {
+  background-color: #282c34;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.App-content {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(10px + 1.75vmin);
   color: white;
+  padding: 16px;
+  max-width: 768px;
+  margin: 0 auto;
 }
 
-.App-link {
-  color: #61dafb;
+.top-padding {
+  padding-top: 72px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Global/Shared */
+.title {
+  cursor: pointer;
+  font-family: 'Brush Script MT', cursive;
+  font-size: 4em;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-family: Copperplate;
+  font-size: 2em;
+  margin-bottom: 16px;
+  margin-top: 0px;
+}
+
+.large-btn {
+  background: #282c34;
+  border: 1px solid white;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  padding: 15px;
+}
+
+.large-btn:hover {
+  background: #535c6d;
+}
+
+.small-btn {
+  background: #282c34;
+  border: 1px solid white;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  padding: 10px;
+}
+
+.small-btn:hover {
+  background: #535c6d;
+}
+
+.tiny-btn {
+  background: #282c34;
+  border: 1px solid white;
+  border-radius: 8px;
+  color: white;
+  font-size: .8rem;
+  padding: 5px;
+}
+
+.tiny-btn:hover {
+  background: #535c6d;
+}
+
+.full-width-btn {
+  margin-top: 12px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.mobile-full-width-btn {
+  margin-bottom: 16px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.nav-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  max-width: 768px;
+  width: 100%
 }

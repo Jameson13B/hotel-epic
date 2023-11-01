@@ -1,0 +1,9 @@
+.home-paragraph {
+  margin-bottom: 50px;
+}
+
+@media (max-width: 768px) {
+  .override-margin-top {
+    margin-top: 16px;
+  }
+}

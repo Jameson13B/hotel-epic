@@ -1,0 +1,48 @@
+import React from 'react'
+import './styles/Join.css'
+import { EVENTS } from '../data'
+import { STEPS } from '../App'
+
+export const Join = (props) => {
+  const nextEvent = EVENTS.filter((e) => e.next)[0]
+
+  return (
+    <React.Fragment>
+      <h1 className="title" onClick={() => props.setStep(STEPS.HOME)}>
+        Hotel Epic
+      </h1>
+      <h2 className="subtitle">Join Us</h2>
+
+      <div className="join-card">
+        <h3 className="join-card-header">{nextEvent.name}</h3>
+        {nextEvent.host && (
+          <p className="join-card-paragraph join-host-label">
+            Hosted by {nextEvent.host}
+          </p>
+        )}
+        <p className="join-card-paragraph join-price-row">
+          <strong>Food Price: ${nextEvent.food_price}</strong>
+          <strong>Drink Price: ${nextEvent.drink_price}</strong>
+        </p>
+        <p className="join-card-paragraph">
+          <strong>When:</strong> {nextEvent.date}
+        </p>
+        <p className="join-card-paragraph">
+          <strong>Details:</strong> {nextEvent.details}
+        </p>
+        <button
+          className="tiny-btn mobile-full-width-btn"
+          onClick={() => props.setStep(STEPS.FORM)}
+        >
+          Interested in Event?
+        </button>
+      </div>
+      <h4>Previous Events:</h4>
+      {EVENTS.filter((e) => !e.next).map((event) => (
+        <div className="join-card join-prev-card" key={event.name}>
+          <h4 className="join-card-alt-header">{event.name}</h4>
+        </div>
+      ))}
+    </React.Fragment>
+  )
+}
