@@ -11,21 +11,21 @@ export const Home = () => {
       <h2 className="text-[2rem] mb-[48px] mt-0 font-copperplate">
         Supper Club
       </h2>
-      <div className="border border-white divide-y divide-white flex flex-col p-[6px]">
+      <div className="border border-white divide-y divide-white flex flex-col px-[12px]">
         <button
-          className="text-[1.5rem] p-[10px]"
+          className="text-[1.5rem] p-[16px]"
           onClick={() => navigate("/about")}
         >
           About
         </button>
         <button
-          className="text-[1.5rem] p-[10px]"
+          className="text-[1.5rem] p-[16px]"
           onClick={() => navigate("/see")}
         >
           See
         </button>
         <button
-          className="text-[1.5rem] p-[10px]"
+          className="text-[1.5rem] p-[16px]"
           onClick={() => navigate("/join")}
         >
           Join
