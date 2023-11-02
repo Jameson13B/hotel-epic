@@ -7,10 +7,13 @@ export const See = () => {
 
   return (
     <React.Fragment>
-      <h1 className="title" onClick={() => navigate("/")}>
+      <h1
+        className="text-[5rem] mt-[15%] font-cursive"
+        onClick={() => navigate("/")}
+      >
         Hotel Epic
       </h1>
-      <h2 className="subtitle">See</h2>
+      <h2 className="text-[2rem] mb-[16px] mt-0 font-copperplate">See</h2>
 
       <p>A gallery of past events will be here.</p>
     </React.Fragment>

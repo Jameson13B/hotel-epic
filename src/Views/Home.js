@@ -7,7 +7,7 @@ export const Home = () => {
 
   return (
     <React.Fragment>
-      <h1 className="text-[6rem] mt-[10%] font-cursive">Hotel Epic</h1>
+      <h1 className="text-[5rem] mt-[15%] font-cursive">Hotel Epic</h1>
       <h2 className="text-[2rem] mb-[48px] mt-0 font-copperplate">
         Supper Club
       </h2>

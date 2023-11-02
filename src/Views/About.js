@@ -1,29 +1,41 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./styles/About.css";
 
 export const About = () => {
   const navigate = useNavigate();
 
   return (
     <React.Fragment>
-      <h1 className="title" onClick={() => navigate("/")}>
+      <h1
+        className="text-[5rem] mt-[15%] font-cursive"
+        onClick={() => navigate("/")}
+      >
         Hotel Epic
       </h1>
-      <h2 className="subtitle">About</h2>
+      <h2 className="text-[2rem] mb-[16px] mt-0 font-copperplate">About</h2>
 
-      <p>
+      <p className="mb-[12px]">
         Join others in a themed meal to endulge in good food and good drinks.
         Amazing nights with awesome people enjoying:
       </p>
-      <ul>
-        <li className="list-item">Tacos, Salsas, and Mojitos</li>
-        <li className="list-item">Pastas, Sourdough, and Wine</li>
-        <li className="list-item">Burgers, Chips, and Beer</li>
-        <li className="list-item">Island Snacks, Treats, and Rum Punch</li>
-        <li className="list-item">And Many Others</li>
+      <ul className="list-disc">
+        <li className="text-left font-bold text-[0.9rem] mb-[8px] ml-[36px]">
+          Tacos, Salsas, and Mojitos
+        </li>
+        <li className="text-left font-bold text-[0.9rem] mb-[8px] ml-[36px]">
+          Pastas, Sourdough, and Wine
+        </li>
+        <li className="text-left font-bold text-[0.9rem] mb-[8px] ml-[36px]">
+          Burgers, Chips, and Beer
+        </li>
+        <li className="text-left font-bold text-[0.9rem] mb-[8px] ml-[36px]">
+          Island Snacks, Treats, and Rum Punch
+        </li>
+        <li className="text-left font-bold text-[0.9rem] mb-[8px] ml-[36px]">
+          And Many Others
+        </li>
       </ul>
-      <p className="about-paragraph">
+      <p className="mt-[12px]">
         Events are hosted at homes, venues, restaurants, bars, etc. Be a part of
         an experience.
       </p>

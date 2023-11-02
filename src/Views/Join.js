@@ -9,10 +9,13 @@ export const Join = () => {
 
   return (
     <React.Fragment>
-      <h1 className="title" onClick={() => navigate("/")}>
+      <h1
+        className="text-[5rem] mt-[15%] font-cursive"
+        onClick={() => navigate("/")}
+      >
         Hotel Epic
       </h1>
-      <h2 className="subtitle">Join Us</h2>
+      <h2 className="text-[2rem] mb-[16px] mt-0 font-copperplate">Join Us</h2>
 
       <div className="join-card">
         <h3 className="join-card-header">{nextEvent.name}</h3>
