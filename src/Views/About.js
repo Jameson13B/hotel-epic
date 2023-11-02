@@ -1,11 +1,13 @@
-import React from 'react'
-import './styles/About.css'
-import { STEPS } from '../App'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./styles/About.css";
 
-export const About = (props) => {
+export const About = () => {
+  const navigate = useNavigate();
+
   return (
     <React.Fragment>
-      <h1 className="title" onClick={() => props.setStep(STEPS.HOME)}>
+      <h1 className="title" onClick={() => navigate("/")}>
         Hotel Epic
       </h1>
       <h2 className="subtitle">About</h2>
@@ -25,12 +27,6 @@ export const About = (props) => {
         Events are hosted at homes, venues, restaurants, bars, etc. Be a part of
         an experience.
       </p>
-      <button
-        className="large-btn full-width-btn"
-        onClick={() => props.setStep(STEPS.HOME)}
-      >
-        Home
-      </button>
     </React.Fragment>
-  )
-}
+  );
+};

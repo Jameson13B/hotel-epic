@@ -1,18 +1,19 @@
-import React, { useState } from 'react'
-import './styles/Form.css'
-import { EVENTS } from '../data'
-import { STEPS } from '../App'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./styles/Form.css";
+import { EVENTS } from "../data";
 
-export const Form = (props) => {
-  const nextEvent = EVENTS.filter((e) => e.next)[0]
-  const [joinResp, setJoinResp] = useState(null)
-  const [name, setName] = useState('')
-  const [contact, setContact] = useState('')
+export const Form = () => {
+  const navigate = useNavigate();
+  const [joinResp, setJoinResp] = useState(null);
+  const [name, setName] = useState("");
+  const [contact, setContact] = useState("");
+  const nextEvent = EVENTS.filter((e) => e.next)[0];
 
   const joinEvent = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (!name || !contact) {
-      return alert('Error: Missing name and email/phone number.')
+      return alert("Error: Missing name and email/phone number.");
     }
 
     // Replace Zapier hooks with:
@@ -21,26 +22,26 @@ export const Form = (props) => {
     //   - https://miracleio.me/snippets/use-gmail-with-nodemailer/
     // - Update4 sheets
     //   - https://developers.google.com/sheets/api/quickstart/js#step_2_run_the_sample
-    fetch('https://hooks.zapier.com/hooks/catch/13918812/bpehqiy/', {
-      method: 'POST',
+    fetch("https://hooks.zapier.com/hooks/catch/13918812/bpehqiy/", {
+      method: "POST",
       body: JSON.stringify({
         event: nextEvent.name,
         name,
         contact,
       }),
     })
-      .then((resp) => setJoinResp('Success! See you soon.'))
-      .catch((err) => setJoinResp('Error - Please try again.'))
-  }
+      .then((resp) => setJoinResp("Success! See you soon."))
+      .catch((err) => setJoinResp("Error - Please try again."));
+  };
 
   return (
     <React.Fragment>
-      <h1 className="title" onClick={() => props.setStep(STEPS.HOME)}>
+      <h1 className="title" onClick={() => navigate("/")}>
         Hotel Epic
       </h1>
       <h2 className="subtitle">Form</h2>
       <p>
-        Fill out this form to request more info and get the location for{' '}
+        Fill out this form to request more info and get the location for{" "}
         <em>{nextEvent.name}</em>.
       </p>
       <em className="form-tiny-paragraph">
@@ -73,7 +74,7 @@ export const Form = (props) => {
         {joinResp && (
           <p
             className={`form-${
-              joinResp.includes('Success!') ? 'green' : 'red'
+              joinResp.includes("Success!") ? "green" : "red"
             }-text`}
           >
             {joinResp}
@@ -84,11 +85,11 @@ export const Form = (props) => {
         </button>
         <button
           className="small-btn full-width-btn"
-          onClick={() => props.setStep(STEPS.JOIN)}
+          onClick={() => navigate("/join")}
         >
           Back
         </button>
       </form>
     </React.Fragment>
-  )
-}
+  );
+};

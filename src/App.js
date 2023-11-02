@@ -1,40 +1,31 @@
-import React, { useState } from 'react'
-import './App.css'
+import React from "react";
+import { useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
 
-import { About } from './Views/About'
-import { Join } from './Views/Join'
-import { Home } from './Views/Home'
-import { See } from './Views/See'
-import { Form } from './Views/Form'
-
-export const STEPS = {
-  ABOUT: 'about',
-  FORM: 'form',
-  HOME: 'home',
-  JOIN: 'join',
-  SEE: 'see',
-}
+import { About } from "./Views/About";
+import { Join } from "./Views/Join";
+import { Home } from "./Views/Home";
+import { See } from "./Views/See";
+import { Form } from "./Views/Form";
 
 function App() {
-  const [step, setStep] = useState(STEPS.HOME)
+  const location = useLocation();
 
+  console.log(location);
   return (
     <div className="App">
-      <header
-        className={`App-content${step === STEPS.HOME ? ' top-padding' : ''}`}
-      >
-        {step === STEPS.ABOUT && <About setStep={setStep} />}
-
-        {step === STEPS.HOME && <Home setStep={setStep} />}
-
-        {step === STEPS.JOIN && <Join setStep={setStep} />}
-
-        {step === STEPS.SEE && <See setStep={setStep} />}
-
-        {step === STEPS.FORM && <Form setStep={setStep} />}
+      <header className="App-content">
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/join" element={<Join />} />
+          <Route path="/see" element={<See />} />
+          <Route path="/form" element={<Form />} />
+        </Routes>
       </header>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

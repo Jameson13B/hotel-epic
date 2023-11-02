@@ -16,23 +16,15 @@
   margin: 0 auto;
 }
 
-.top-padding {
-  padding-top: 72px;
-}
-
 /* Global/Shared */
 .title {
   cursor: pointer;
-  font-family: 'Brush Script MT', cursive;
-  font-size: 4em;
-  margin-bottom: 8px;
+  font-family: "Brush Script MT", cursive;
+  font-size: 6rem;
 }
 
 .subtitle {
   font-family: Copperplate;
-  font-size: 2em;
-  margin-bottom: 16px;
-  margin-top: 0px;
 }
 
 .large-btn {
@@ -66,7 +58,7 @@
   border: 1px solid white;
   border-radius: 8px;
   color: white;
-  font-size: .8rem;
+  font-size: 0.8rem;
   padding: 5px;
 }
 
@@ -91,5 +83,5 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   max-width: 768px;
-  width: 100%
+  width: 100%;
 }

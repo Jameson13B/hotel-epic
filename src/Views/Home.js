@@ -1,32 +1,36 @@
-import React from 'react'
-import './styles/Home.css'
-import { STEPS } from '../App'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./styles/Home.css";
 
-export const Home = (props) => {
+export const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <React.Fragment>
-      <h1 className="title">Hotel Epic</h1>
-      <h2 className="subtitle">Supper Club</h2>
-      <p className="home-paragraph">
-        Gather and enjoy good food, good drinks, and good people.
-      </p>
-      <div className="nav-bar">
+      <h1 className="text-[6rem] mt-[20%] font-cursive">Hotel Epic</h1>
+      <h2 className="text-[2rem] mb-[48px] mt-0 font-copperplate">
+        Supper Club
+      </h2>
+      <div className="border border-white divide-y divide-white flex flex-col p-[6px]">
         <button
-          className="small-btn"
-          onClick={() => props.setStep(STEPS.ABOUT)}
+          className="text-[1.5rem] p-[10px]"
+          onClick={() => navigate("/about")}
         >
-          About Hotel Epic
-        </button>
-        {/* <button className="small-btn" onClick={() => props.setStep(STEPS.SEE)}>
-          See Hotel Epic
+          About
         </button>
         <button
-          className="small-btn override-margin-top"
-          onClick={() => props.setStep(STEPS.JOIN)}
+          className="text-[1.5rem] p-[10px]"
+          onClick={() => navigate("/see")}
         >
-          Join Hotel Epic
-        </button> */}
+          See
+        </button>
+        <button
+          className="text-[1.5rem] p-[10px]"
+          onClick={() => navigate("/join")}
+        >
+          Join
+        </button>
       </div>
     </React.Fragment>
-  )
-}
+  );
+};

@@ -1,14 +1,15 @@
-import React from 'react'
-import './styles/Join.css'
-import { EVENTS } from '../data'
-import { STEPS } from '../App'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./styles/Join.css";
+import { EVENTS } from "../data";
 
-export const Join = (props) => {
-  const nextEvent = EVENTS.filter((e) => e.next)[0]
+export const Join = () => {
+  const navigate = useNavigate();
+  const nextEvent = EVENTS.filter((e) => e.next)[0];
 
   return (
     <React.Fragment>
-      <h1 className="title" onClick={() => props.setStep(STEPS.HOME)}>
+      <h1 className="title" onClick={() => navigate("/")}>
         Hotel Epic
       </h1>
       <h2 className="subtitle">Join Us</h2>
@@ -32,7 +33,7 @@ export const Join = (props) => {
         </p>
         <button
           className="tiny-btn mobile-full-width-btn"
-          onClick={() => props.setStep(STEPS.FORM)}
+          onClick={() => navigate("form")}
         >
           Interested in Event?
         </button>
@@ -44,5 +45,5 @@ export const Join = (props) => {
         </div>
       ))}
     </React.Fragment>
-  )
-}
+  );
+};
