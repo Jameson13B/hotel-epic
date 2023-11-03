@@ -6,12 +6,15 @@ export const About = () => {
 
   return (
     <React.Fragment>
-      <h1
-        className="text-[5rem] mt-[15%] font-cursive"
-        onClick={() => navigate("/")}
-      >
-        Hotel Epic
-      </h1>
+      <div class="relative">
+        <h1
+          className="text-[5rem] mt-[15%] font-cursive relative z-10"
+          onClick={() => navigate("/")}
+        >
+          Hotel Epic
+        </h1>
+        <div class="arrow-up" />
+      </div>
       <h2 className="text-[2rem] mb-[16px] mt-0 font-copperplate">About</h2>
 
       <p className="mb-[12px]">

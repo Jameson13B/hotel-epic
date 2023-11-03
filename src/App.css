@@ -17,27 +17,15 @@
 }
 
 /* Global/Shared */
-.title {
-  cursor: pointer;
-  font-family: "Brush Script MT", cursive;
-  font-size: 6rem;
-}
-
-.subtitle {
-  font-family: Copperplate;
-}
-
-.large-btn {
-  background: #282c34;
-  border: 1px solid white;
-  border-radius: 8px;
-  color: white;
-  font-size: 1rem;
-  padding: 15px;
-}
-
-.large-btn:hover {
-  background: #535c6d;
+.arrow-up {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 8rem solid transparent;
+  border-right: 8rem solid transparent;
+  border-bottom: 8rem solid rgba(255, 255, 255, 0.6);
+  top: calc(50% - 4rem);
+  left: calc(50% - 8rem);
 }
 
 .small-btn {
@@ -53,35 +41,8 @@
   background: #535c6d;
 }
 
-.tiny-btn {
-  background: #282c34;
-  border: 1px solid white;
-  border-radius: 8px;
-  color: white;
-  font-size: 0.8rem;
-  padding: 5px;
-}
-
-.tiny-btn:hover {
-  background: #535c6d;
-}
-
 .full-width-btn {
   margin-top: 12px;
   width: 100%;
   max-width: 600px;
-}
-
-.mobile-full-width-btn {
-  margin-bottom: 16px;
-  width: 100%;
-  max-width: 300px;
-}
-
-.nav-bar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  max-width: 768px;
-  width: 100%;
 }
