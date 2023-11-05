@@ -1,5 +1,4 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -10,9 +9,6 @@ import { See } from "./Views/See";
 import { Form } from "./Views/Form";
 
 function App() {
-  const location = useLocation();
-
-  console.log(location);
   return (
     <div className="App">
       <header className="App-content">

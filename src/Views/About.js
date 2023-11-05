@@ -6,14 +6,14 @@ export const About = () => {
 
   return (
     <React.Fragment>
-      <div class="relative">
+      <div className="relative">
         <h1
           className="text-[5rem] mt-[15%] font-cursive relative z-10"
           onClick={() => navigate("/")}
         >
           Hotel Epic
         </h1>
-        <div class="arrow-up" />
+        <div className="arrow-up" />
       </div>
       <h2 className="text-[2rem] mb-[16px] mt-0 font-copperplate">About</h2>
 

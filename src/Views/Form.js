@@ -1,77 +1,68 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./styles/Form.css";
-import { EVENTS } from "../data";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export const Form = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [joinResp, setJoinResp] = useState(null);
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
-  const nextEvent = EVENTS.filter((e) => e.next)[0];
 
   const joinEvent = (e) => {
     e.preventDefault();
     if (!name || !contact) {
-      return alert("Error: Missing name and email/phone number.");
+      return setJoinResp("Error: Missing name and email/phone number.");
     }
 
-    // Replace Zapier hooks with:
-    // - Nodemailer npm
-    //   - https://www.w3schools.com/nodejs/nodejs_email.asp
-    //   - https://miracleio.me/snippets/use-gmail-with-nodemailer/
-    // - Update4 sheets
-    //   - https://developers.google.com/sheets/api/quickstart/js#step_2_run_the_sample
-    fetch("https://hooks.zapier.com/hooks/catch/13918812/bpehqiy/", {
-      method: "POST",
-      body: JSON.stringify({
-        event: nextEvent.name,
+    axios
+      .post(".netlify/functions/rsvp4Event", {
         name,
         contact,
-      }),
-    })
-      .then((resp) => setJoinResp("Success! See you soon."))
-      .catch((err) => setJoinResp("Error - Please try again."));
+        id: location.state.id,
+      })
+      .then(() => setJoinResp("Success! See you soon."))
+      .catch(() => setJoinResp("Error - Please try again."));
   };
 
   return (
     <React.Fragment>
-      <div class="relative">
+      <div className="relative">
         <h1
           className="text-[5rem] mt-[15%] font-cursive relative z-10"
           onClick={() => navigate("/")}
         >
           Hotel Epic
         </h1>
-        <div class="arrow-up" />
+        <div className="arrow-up" />
       </div>
       <h2 className="text-[2rem] mb-[16px] mt-0 font-copperplate">Form</h2>
       <p>
-        Fill out this form to request more info and get the location for{" "}
-        <em>{nextEvent.name}</em>.
+        Fill out this form to request more info and get the location for the
+        next event.
       </p>
-      <em className="form-tiny-paragraph">
+      <em className="text-[0.75rem] mb-[24px] to-0">
         This isn't a commitment. Things happen and plans change. If you need to
         cancel, no problem, just let us know.
       </em>
 
-      <form className="form-wrapper">
-        <label className="form-label" htmlFor="name">
+      <form className="flex flex-col text-[1.3rem] max-w-[400px] w-full">
+        <label className="text-start mb-[12px]" htmlFor="name">
           Name:
         </label>
         <input
           autoFocus={true}
-          className="form-input"
+          className="bg-[#dedede] rounded-[6px] mb-[24px] text-[1rem] p-[6px]"
           id="name"
           onChange={(e) => setName(e.target.value)}
           placeholder="Name"
           value={name}
         />
-        <label className="form-label" htmlFor="contact">
+        <label className="text-start mb-[12px]" htmlFor="contact">
           Email or Phone Number:
         </label>
         <input
-          className="form-input"
+          className="bg-[#dedede] rounded-[6px] mb-[24px] text-[1rem] p-[6px]"
           id="contact"
           onChange={(e) => setContact(e.target.value)}
           placeholder="Email or Phone Number(text)"
@@ -79,9 +70,9 @@ export const Form = () => {
         />
         {joinResp && (
           <p
-            className={`form-${
-              joinResp.includes("Success!") ? "green" : "red"
-            }-text`}
+            className={`mt-[6px] mb-[12px] text-[1rem] font-bold ${
+              joinResp.includes("Success!") ? "text-[green]" : "text-[red]"
+            }`}
           >
             {joinResp}
           </p>
