@@ -52,20 +52,18 @@ export const Form = () => {
         </label>
         <input
           autoFocus={true}
-          className="bg-[#dedede] rounded-[6px] mb-[24px] text-[1rem] p-[6px]"
+          className="bg-[#cacaca] text-[darkslategrey] font-semibold rounded-[6px] mb-[24px] text-[1rem] p-[6px]"
           id="name"
           onChange={(e) => setName(e.target.value)}
-          placeholder="Name"
           value={name}
         />
         <label className="text-start mb-[12px]" htmlFor="contact">
           Email or Phone Number:
         </label>
         <input
-          className="bg-[#dedede] rounded-[6px] mb-[24px] text-[1rem] p-[6px]"
+          className="bg-[#cacaca] text-[darkslategrey] font-semibold rounded-[6px] mb-[24px] text-[1rem] p-[6px]"
           id="contact"
           onChange={(e) => setContact(e.target.value)}
-          placeholder="Email or Phone Number(text)"
           value={contact}
         />
         {joinResp && (
@@ -77,11 +75,14 @@ export const Form = () => {
             {joinResp}
           </p>
         )}
-        <button className="small-btn full-width-btn" onClick={joinEvent}>
+        <button
+          className="bg-[#282c34] border-[2px] border-white rounded-[8px] color-white text-[1rem] py-[8px] font-bold mt-[12px] w-full max-w-[600px]"
+          onClick={joinEvent}
+        >
           Submit
         </button>
         <button
-          className="small-btn full-width-btn"
+          className="bg-[#282c34] border border-white rounded-[8px] color-white text-[1rem] py-[8px] mt-[16px] w-full max-w-[600px]"
           onClick={() => navigate("/join")}
         >
           Back

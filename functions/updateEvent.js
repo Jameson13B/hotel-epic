@@ -12,7 +12,9 @@ exports.handler = async function (event, context) {
     .collection("events");
 
   try {
-    const result = await eventsCollection.find({ next: { $eq: true } });
+    const result = await eventsCollection.update("id", {
+      date: "",
+    });
     return { statusCode: 200, body: JSON.stringify(result) };
   } catch (error) {
     console.error(error);

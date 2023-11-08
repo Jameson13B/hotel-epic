@@ -11,16 +11,19 @@ exports.handler = async function (event, context) {
     .namespace(process.env.ASTRA_DB_KEYSPACE)
     .collection("events");
 
+  // In the future, when creating a new event
+  // we need to set the old `next` value to false.
+
   try {
-    const event = await eventsCollection.create("taconite", {
-      name: "New Event",
-      date: "TBD",
+    const event = await eventsCollection.create("pastanite", {
+      name: "Name",
+      date: new Date("7/21/2023"),
       details:
-        "Come and enjoy a variety of tacos(asada, al pastor, nopales) paired with a variety of salsas(rojo, verde, aguacate). Enjoy with homemade Mojitos made with fresh mint and real sugar.",
-      drink_price: 7,
-      food_price: 10,
-      next: true,
-      host: "Jimmy Bell",
+        "Come and enjoy a variety of pastas paired with a variety of sauces(red, white, pesto). Enjoy with a collection of wines and freshly bakes sourdough bread.",
+      drink_price: 10,
+      food_price: 15,
+      next: false,
+      host: "Nirobi Smith",
       attendees: [],
     });
     return { statusCode: 200, body: JSON.stringify(event) };

@@ -1,3 +1,4 @@
+const subDays = require("date-fns/subDays");
 const { createClient } = require("@astrajs/collections");
 
 exports.handler = async function (event, context) {
@@ -12,8 +13,11 @@ exports.handler = async function (event, context) {
     .collection("events");
 
   try {
-    const result = await eventsCollection.find({ next: { $eq: true } });
-    return { statusCode: 200, body: JSON.stringify(result) };
+    const startDate = subDays(new Date(), 180);
+    const result = await eventsCollection.find({
+      date: { $gt: startDate.getTime() },
+    });
+    return { statusCode: 200, body: JSON.stringify(result.data) };
   } catch (error) {
     console.error(error);
     return { statusCode: 500, body: JSON.stringify(error) };
