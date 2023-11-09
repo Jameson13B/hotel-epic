@@ -26,7 +26,7 @@ export const Join = () => {
     <React.Fragment>
       <div className="relative">
         <h1
-          className="text-[5rem] mt-[15%] font-cursive relative z-10"
+          className="text-[5rem] mt-[15%] font-cursive relative z-10 cursor-pointer"
           onClick={() => navigate("/")}
         >
           Hotel Epic

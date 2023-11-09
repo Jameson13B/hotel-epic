@@ -1,6 +1,10 @@
 const subDays = require("date-fns/subDays");
 const { createClient } = require("@astrajs/collections");
 
+/**
+ * .netlify/functions/getEvents
+ * Line 20 controls how many days in the past we get events.
+ */
 exports.handler = async function (event, context) {
   const astraClient = await createClient({
     astraDatabaseId: process.env.ASTRA_DB_ID,

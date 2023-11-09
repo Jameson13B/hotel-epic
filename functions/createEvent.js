@@ -1,5 +1,9 @@
 const { createClient } = require("@astrajs/collections");
 
+/**
+ * .netlify/functions/createEvent
+ * Uses the object on Line 22 to create new event.
+ */
 exports.handler = async function (event, context) {
   const astraClient = await createClient({
     astraDatabaseId: process.env.ASTRA_DB_ID,

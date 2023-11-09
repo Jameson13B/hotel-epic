@@ -1,5 +1,9 @@
 const { createClient } = require("@astrajs/collections");
 
+/**
+ * .netlify/functions/rsvp4Event
+ * Send name and contact through request body.
+ */
 exports.handler = async function (event, context) {
   const astraClient = await createClient({
     astraDatabaseId: process.env.ASTRA_DB_ID,

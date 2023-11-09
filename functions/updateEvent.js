@@ -1,5 +1,9 @@
 const { createClient } = require("@astrajs/collections");
 
+/**
+ * .netlify/functions/updateEvent
+ * Include event ID and updates in object on Line 19.
+ */
 exports.handler = async function (event, context) {
   const astraClient = await createClient({
     astraDatabaseId: process.env.ASTRA_DB_ID,
@@ -12,8 +16,8 @@ exports.handler = async function (event, context) {
     .collection("events");
 
   try {
-    const result = await eventsCollection.update("id", {
-      date: "",
+    const result = await eventsCollection.update("ID", {
+      host: "Nairobi Smith",
     });
     return { statusCode: 200, body: JSON.stringify(result) };
   } catch (error) {

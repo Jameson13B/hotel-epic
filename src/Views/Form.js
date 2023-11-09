@@ -29,7 +29,7 @@ export const Form = () => {
     <React.Fragment>
       <div className="relative">
         <h1
-          className="text-[5rem] mt-[15%] font-cursive relative z-10"
+          className="text-[5rem] mt-[15%] font-cursive relative z-10 cursor-pointer"
           onClick={() => navigate("/")}
         >
           Hotel Epic
@@ -38,8 +38,8 @@ export const Form = () => {
       </div>
       <h2 className="text-[2rem] mb-[16px] mt-0 font-copperplate">Form</h2>
       <p>
-        Fill out this form to request more info and get the location for the
-        next event.
+        Fill out this form to request more info and the location for the next
+        event.
       </p>
       <em className="text-[0.75rem] mb-[24px] to-0">
         This isn't a commitment. Things happen and plans change. If you need to

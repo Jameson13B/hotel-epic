@@ -1,5 +1,8 @@
 const { createClient } = require("@astrajs/collections");
 
+/**
+ * .netlify/functions/getEvent?id=taconite
+ */
 exports.handler = async function (event, context) {
   const astraClient = await createClient({
     astraDatabaseId: process.env.ASTRA_DB_ID,
@@ -12,7 +15,7 @@ exports.handler = async function (event, context) {
     .collection("events");
 
   try {
-    const result = await eventsCollection.find({ next: { $eq: true } });
+    const result = await eventsCollection.get(event.queryStringParameters.id);
     return { statusCode: 200, body: JSON.stringify(result) };
   } catch (error) {
     console.error(error);

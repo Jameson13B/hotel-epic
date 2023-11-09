@@ -7,6 +7,7 @@ import { Join } from "./Views/Join";
 import { Home } from "./Views/Home";
 import { See } from "./Views/See";
 import { Form } from "./Views/Form";
+import { Admin } from "./Views/Admin";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/join" element={<Join />} />
           <Route path="/see" element={<See />} />
           <Route path="/form" element={<Form />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </header>
     </div>
