@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+import { ReactComponent as SearchLogo } from "../assets/search.svg";
+
 export const AdminAccess = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
@@ -37,28 +39,30 @@ export const AdminAccess = () => {
         <p className="text-[green] text-[1.15rem] font-bold mb-[16px]">
           *Authenticated*
         </p>
-        <form onSubmit={getEvent}>
+        <form className="flex justify-center mb-[24px]" onSubmit={getEvent}>
           <input
-            className="bg-[#cacaca] text-[darkslategrey] font-semibold rounded-[6px] mb-[24px] text-[2rem] text-center p-[4px] w-full"
+            className="bg-[#cacaca] text-[darkslategrey] font-semibold rounded-[6px] text-[2rem] text-center w-full"
             id="password"
             onChange={({ target }) => setSearchTerm(target.value)}
             onSubmit={getEvent}
             value={searchTerm}
           />
           <button
-            className="bg-[#282c34] border-[2px] border-white rounded-[8px] color-white text-[1rem] py-[8px] font-bold mt-[12px] w-full max-w-[600px]"
+            className="bg-[#282c34] border-[2px] border-white rounded-[8px] color-white text-[1rem] p-[8px] ml-[20px] font-bold w-[20%] flex justify-center"
             type="submit"
           >
-            Get Event
+            <SearchLogo />
           </button>
         </form>
         {event && (
           <div>
-            <h2 className="text-[2rem] font-cursive font-bold">{event.name}</h2>
+            <h2 className="text-[2.5rem] font-cursive font-bold">
+              {event.name}
+            </h2>
             <p className="text-[0.9rem] mt-[-8px] italic">
               Hosted by {event.host}
             </p>
-            <p className="text-[1.25rem] mt-[12px] italic font-bold">
+            <p className="text-[1.5rem] mt-[12px] italic font-bold">
               Attendees:
             </p>
             {event.attendees.map((person) => (

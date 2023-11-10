@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const Authentication = ({ handleOAuth, password, feedback }) => {
+export const Authentication = (props) => {
+  const [password, setPassword] = useState("");
+  const [feedback, setFeedback] = useState(null);
   const navigate = useNavigate();
+
+  const handleOAuth = (e) => {
+    e.preventDefault();
+    const hashedPassword = window.btoa(password);
+
+    setFeedback(hashedPassword !== "RGV4dGVyLjg1MTAw" && "Password Incorrect");
+    props.setAuthenticated(
+      hashedPassword === "RGV4dGVyLjg1MTAw" ? true : false
+    );
+  };
 
   return (
     <React.Fragment>
@@ -34,13 +46,13 @@ export const Authentication = ({ handleOAuth, password, feedback }) => {
           autoFocus={true}
           className="bg-[#cacaca] text-[darkslategrey] font-semibold rounded-[6px] mb-[24px] text-[2rem] text-center p-[6px] w-full"
           id="password"
-          onChange={({ target }) => password.set(target.value)}
+          onChange={({ target }) => setPassword(target.value)}
           type="password"
-          value={password.get}
+          value={password}
         />
         {feedback && (
           <label className="text-start text-[red] font-bold text-[1.5rem] mb-[12px]">
-            {feedback.get}
+            {feedback}
           </label>
         )}
       </form>
